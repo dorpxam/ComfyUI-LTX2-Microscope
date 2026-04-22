@@ -1,0 +1,18 @@
+[project]
+name = "comfyui-ltx2-microscope"
+description = "48-Layers Latent Previewer for Lightrick's LTX-2 model."
+version = "0.1.0"
+readme = "README.md"
+license = { file = "LICENSE" }
+dependencies = [
+    "pillow",
+    "opencv-python"
+]
+
+[project.urls]
+Repository = "https://github.com/dorpxam/ComfyUI-LTX2-Microscope"
+
+[tool.comfy]
+PublisherId = "dorpxam"
+DisplayName = "LTX-2 Microscope"
+Icon = ""

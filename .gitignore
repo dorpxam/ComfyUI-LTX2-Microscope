@@ -1,0 +1,23 @@
+# Environnement de développement
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+build/
+dist/
+
+# Système
+.DS_Store
+Thumbs.db
+
+# ComfyUI (si jamais tu as des liens symboliques ou des fichiers de test)
+*.log
