@@ -106,6 +106,9 @@ app.registerExtension({
                         ui_button.element.remove();
                         delete ui_button.element;
                     }
+
+                    ui_button.y = this.size[1]; 
+                    ui_button.last_y = this.size[1]; 
                 }
 
                 return result;
