@@ -12,37 +12,9 @@ export const BAR_STYLE = {
     barHeight: LiteGraph.NODE_WIDGET_HEIGHT,
 };
 
-export const BAR_SECTIONS = [
-    { id: "res", label: "Latent Resolution: ", worstCase: "0000 x 0000", format: (v) => (v.w && v.h) ? `${v.w} x ${v.h}  |  ${v.wx} x ${v.hx} real` : "--- x ---" },
-    { id: "frm", label: "Latent Frames: ",     worstCase: "000 / 000",   format: (v) => v.total ? `${v.cur} / ${v.total}  |  ${v.curx} / ${v.totalx} real` : "--- / ---" },
-    { id: "stp", label: "Steps: ",             worstCase: "000 / 000",   format: (v) => v.total ? `${v.cur} / ${v.total}` : "--- / ---" },
-    { id: "sts", label: "Status: ",            worstCase: "SAMPLING",    format: (v) => v.status || "IDLE" }
-];
-
 export class StatusBar {
     constructor(node) {
         this.node = node;
-        this.ratios = [];
-    }
-
-    calculateRatios(ctx) {
-        ctx.font = BAR_STYLE.font;
-        const widths = BAR_SECTIONS.map(s => ctx.measureText(s.label + s.worstCase).width);
-        const total = widths.reduce((a, b) => a + b, 0);
-        this.ratios = widths.map(w => w / total);
-        return this.ratios;
-    }
-
-    prepareData(visualizer) {
-        const dm = visualizer.manager;
-        const anim = visualizer.animator;
-
-        return {
-            res: { w: dm.width, h: dm.height, wx: dm.width * 32, hx: dm.height * 32 },
-            frm: { cur: anim.currentFrame + 1, total: dm.frames, curx: (anim.currentFrame + 1) * 8 + 1, totalx: dm.frames * 8 + 1 },
-            stp: { cur: dm.step + 1, total: dm.total_steps },
-            sts: { status: visualizer.node.isWorking ? "SAMPLING" : "IDLE" }
-        };
     }
 
     drawBackground(ctx, x, y, width, height) {
@@ -121,10 +93,6 @@ export class StatusBar {
     }
 
     drawStatus(ctx, x, y, width, height, visualizer, working) {
-        //     { id: "stp", label: "Steps: ",             worstCase: "000 / 000",   format: (v) => v.total ? `${v.cur} / ${v.total}` : "--- / ---" },
-        //     { id: "sts", label: "Status: ",            worstCase: "SAMPLING",    format: (v) => v.status || "IDLE" }
-        // stp: { cur: dm.step + 1, total: dm.total_steps },
-        // sts: { status: visualizer.node.isWorking ? "SAMPLING" : "IDLE" }
         ctx.save();
         const dm = visualizer.manager;
         const anim = visualizer.animator;
