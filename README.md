@@ -1,10 +1,10 @@
 ## LTX-2 Microscope
 48-Layers Latent Previewer for Lightricks LTX-2 Video Transformer.
 
-![Screenshot of LTX-2 Microscope.](/assets/screenshot.png)
-
 > [!CAUTION]
 > For now, this project is not compatible to the Node 2.0 (UI) of ComfyUI.
+
+![Screenshot of LTX-2 Microscope.](/assets/screenshot.png)
 
 ## Description
 LTX-2 Microscope is a technical diagnostic tool for ComfyUI designed to visualize the internal latent states across all 48 layers of the LTX-2 transformer model during the sampling process. It provides a real-time 8x6 grid overlay to analyze how noise transforms into signal through each layer of the architecture.
